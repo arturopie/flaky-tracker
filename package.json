@@ -1,0 +1,44 @@
+{
+  "name": "flaky-tracker",
+  "version": "0.0.1",
+  "description": "Project that scans and extract flaky tests from Buildkite pipelines",
+  "main": ".build/src/index.js",
+  "types": ".build/src/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint '**/*.{js,ts,tsx}' --max-warnings 0",
+    "lint:fix": "yarn lint --fix",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "postversion" : "git push && git push --tags",
+    "test": "jest",
+    "version" : "npm run format && git add -A src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arturopie/flaky-tracker.git"
+  },
+  "keywords": ["flaky test", "flaky specs", "Transient tests", "transient specs", "buildkite", "non-deterministic"],
+  "author": "Arturo Pie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arturopie/flaky-tracker/issues"
+  },
+  "homepage": "https://github.com/arturopie/flaky-tracker#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.0",
+    "typescript": "^4.0.3"
+  },
+  "files": [
+    ".build/**/*"
+  ]
+}
