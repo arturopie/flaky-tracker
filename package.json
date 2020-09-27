@@ -9,16 +9,24 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint '**/*.{js,ts,tsx}' --max-warnings 0",
     "lint:fix": "yarn lint --fix",
-    "prepare" : "yarn run build",
-    "postversion" : "git push && git push --tags",
+    "prepare": "yarn run build",
+    "postversion": "git push && git push --tags",
     "test": "jest",
-    "version" : "yarn run lint && yarn test && git add -A src"
+    "test:watch": "yarn test --watch --notify --notifyMode=change",
+    "version": "yarn run lint && yarn test && git add -A src"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arturopie/flaky-tracker.git"
   },
-  "keywords": ["flaky test", "flaky specs", "Transient tests", "transient specs", "buildkite", "non-deterministic"],
+  "keywords": [
+    "flaky test",
+    "flaky specs",
+    "Transient tests",
+    "transient specs",
+    "buildkite",
+    "non-deterministic"
+  ],
   "author": "Arturo Pie",
   "license": "MIT",
   "bugs": {
@@ -27,6 +35,7 @@
   "homepage": "https://github.com/arturopie/flaky-tracker#readme",
   "devDependencies": {
     "@types/jest": "^26.0.14",
+    "@types/node": "^12.12.62",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
     "eslint": "^7.10.0",
@@ -39,5 +48,12 @@
   },
   "files": [
     ".build/**/*"
-  ]
+  ],
+  "dependencies": {
+    "aws-sdk": "^2.761.0",
+    "axios": "^0.19.0",
+    "graphql": "^15.3.0",
+    "graphql-request": "^3.1.0",
+    "node-fetch": "^2.6.1"
+  }
 }
