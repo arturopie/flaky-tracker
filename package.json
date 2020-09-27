@@ -9,11 +9,11 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint '**/*.{js,ts,tsx}' --max-warnings 0",
     "lint:fix": "yarn lint --fix",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
+    "prepare" : "yarn run build",
+    "prepublishOnly" : "yarn test && yarn run lint",
     "postversion" : "git push && git push --tags",
     "test": "jest",
-    "version" : "npm run format && git add -A src"
+    "version" : "yarn run format && git add -A src"
   },
   "repository": {
     "type": "git",
